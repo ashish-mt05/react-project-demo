@@ -1,0 +1,123 @@
+// Destructuring Objects
+// Here is the old way of using an object inside a function:
+
+// const vehicleOne = {
+//   brand: 'Ford',
+//   model: 'Mustang',
+//   type: 'car',
+//   year: 2021, 
+//   color: 'red'
+// }
+
+// myVehicle(vehicleOne);
+
+// // old way
+// function myVehicle(vehicle) {
+//   const message = 'My ' + vehicle.type + ' is a ' + vehicle.color + ' ' + vehicle.brand + ' ' + vehicle.model + '.';
+// }
+
+// Here is the new way of using an object inside a function:
+
+// Ex1 :
+
+// const vehicleOne = {
+//     brand: 'Ford',
+//     model: 'Mustang',
+//     type: 'car',
+//     year: 2021, 
+//     color: 'red'
+//   }
+  
+//   //call method
+//   myVehicle(vehicleOne);
+  
+//   function myVehicle({type, color, brand, model}) {
+//     console.log('My ' + type + ' is a ' + color + ' ' + brand + ' ' + model + '.');
+//   }
+
+//   Ex2 :
+
+//   const vehicleOne = {
+//     brand: 'Ford',
+//     model: 'Mustang',
+//     type: 'car',
+//     year: 2021, 
+//     color: 'red',
+//     registration: {
+//       city: 'Houston',
+//       state: 'Texas',
+//       country: 'USA'
+//     }
+//   }
+  
+//   //call method
+//   myVehicle(vehicleOne)
+  
+//   function myVehicle({ model, registration: { city, state } }) {
+//     const message = 'My ' + model + ' is registered in '+city + ":" + state + '.';
+//   }
+
+//   2nd way :
+
+//   const vehicleOne = {
+//     brand: 'Ford',
+//     model: 'Mustang',
+//     type: 'car',
+//     year: 2021, 
+//     color: 'red',
+//     registration: {
+//       city: 'Houston',
+//       state: 'Texas',
+//       country: 'USA'
+//     }
+//   }
+
+//   //extract all field
+//   const {brand, model, type, year, color} = vehicleOne;
+
+//   //we can also extract partial field if we want :
+
+//   Ex: extract brand, type and color
+
+//   const {brand, type, color} = vehicleOne;
+
+//   cons {brand, registration: {state, country}} = vehicleOne;
+
+//2nd Ex:
+
+// const user = {
+//     id: 339,
+//     name: 'Fred',
+//     age: 42,
+//     education: {
+//       degree: 'Masters'
+//     }
+//   };
+//   const {education: {degree}} = user;
+//   alert(degree);
+ 
+// ex 3:
+// const employees = {
+//     engineers: {
+//         0: {
+//             id: 1,
+//             name: "John Doe",
+//             occupation: "Back-end Engineer"
+//         },
+//         1: {
+//             id: 2,
+//             name: "Jane Doe",
+//             occupation: "Front-end Engineer"
+//         },
+//     }
+// };
+
+// const {
+//     engineers: {
+//         1: {
+//             id,
+//             name,
+//             occupation,
+//         },
+//     },
+// } = employees;

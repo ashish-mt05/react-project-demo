@@ -1,0 +1,28 @@
+// The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
+
+// Example:
+
+// const numbersOne = [1, 2, 3];
+// const numbersTwo = [4, 5, 6];
+
+// copy :
+// const copyNumbersOne = ...numbersOne;
+
+// combined two array :
+// const numbersCombined = [...numbersOne, ...numbersTwo]
+
+// The spread operator is often used in combination with destructuring.
+// Ex:
+
+// const numbers = [1, 2, 3, 4, 5, 6];
+// const [one, two, ...rest] = numbers;
+
+// document.write("<p>" + one + "</p>"); o/p : 1
+// document.write("<p>" + two + "</p>"); o/p : 2
+// document.write("<p>" + rest + "</p>"); o/p : 3,4,5,6
+
+// here 1 and 2 got copied to one and two and remaining element got copyied to rest.
+
+
+
+

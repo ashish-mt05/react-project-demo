@@ -1,0 +1,100 @@
+<!-- What is map() ?
+In simple terms, the map function calls a function once for each element in an array. Basically, it iterates over each element or item in an array and creates a new array based on what is returned by the function.
+
+What is it used for?
+It is commonly used when you want to take an array, make some changes on the items or apply a function on it, and get a new array.
+
+The Basic syntax is Using Arrow Funtion:
+map((element, index, array) => {
+   //return something
+})
+
+ex:
+
+const array = [3,1,15,1,5,3,23]
+//map the array
+array.map((el) =>{
+    console.log(el)
+})
+
+ex:
+const users = [
+  { firstName: "john", lastName: "doe" },
+  { firstName: "Daniel", lastName: "steve" },
+  { firstName: "mike", lastName: "hoff" },
+];
+//map the array and display only first names
+users.map((el) => {
+  console.log(el.firstName);
+});
+
+ex:
+const materials = ['Hydrogen', 'Helium', 'Lithium', 'Beryllium'];
+const data = materials.map((material) => material.length);
+console.log(data);
+
+React Ex:
+
+export default function SkillSet() {
+    const skillset = ['Java', 'Spring Boot', 'Microservice', 'MySQL', 'MongoDB'];
+    return (
+        <>
+            {skillset.map((item, index) => (
+                <span key={index}>
+                    <span className="badge badge-pill bg-info me-2">{item}</span>
+                </span>
+            ))}
+        </>
+    )
+}
+
+
+Using Traditional Function :
+ex: 
+const numbers = [65, 44, 12, 4];
+const newArr = numbers.map(myFunction)
+
+function myFunction(num) {
+  return num * 10;
+}
+
+In React :
+
+import React from 'react';
+
+export default function App() {
+ const applicants = [ {
+    name: 'Joe', work: 'freelance-developer',
+    blogs: '54', websites: '32',
+    hackathons: '6', location: 'morocco', id: '0',
+  },
+  {
+    name: 'janet', work: 'fullstack-developer', 
+    blogs: '34', websites: '12', 
+    hackathons: '8', location: 'Mozambique', id: '1',
+  },
+
+ ];
+  return (
+    <>
+    {
+      applicants.map(function(applicant) 
+      {
+            return 
+            (
+            <div key={applicant.id}>
+                <p>Applicant Name: {applicant.name}</p>
+                <p>Applicant location: {applicant.location}</p>
+                <p>Hackathons participated: {applicant.hackathons}</p>
+            </div>
+            )
+      })
+    }
+    </>
+  );
+};
+
+
+
+
+ -->
