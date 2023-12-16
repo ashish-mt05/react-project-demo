@@ -1,0 +1,14 @@
+It provide two class classes to create form:
+
+1) .form-group : The <form-group> component wraps a form control with proper spacing, along with support for a label, help text, and validation state.
+
+2) .form-control : Give textual form controls like <input>s and <textarea> with custom styles, sizing, focus states, and more.
+
+
+For more follow below link:
+
+//bootstrap 5
+https://getbootstrap.com/docs/5.0/forms/checks-radios/
+
+//react bootstrap:
+https://react-bootstrap.netlify.app/docs/forms/overview
