@@ -1,0 +1,41 @@
+// <!-- Spread Operator With Objects :
+
+// We can use the spread operator with objects too
+
+// Ex:
+
+// const myVehicle = {
+//   brand: 'Ford',
+//   model: 'Mustang',
+//   color: 'red'
+// }
+
+// //copy myVehicle object data to updateMyVehicle
+// const updateMyVehicle ={...myVehicle};
+
+// //combine two object into one :
+// const myVehicle = {
+//   brand: 'Ford',
+//   model: 'Mustang',
+//   color: 'red'
+// }
+// const updateMyVehicle = {
+//   type: 'car',
+//   year: 2021, 
+//   color: 'yellow'
+// }
+// const myUpdatedVehicle = {...myVehicle, ...updateMyVehicle}
+
+// //update partial filed value of object :
+// const myVehicle = {
+//   brand: 'Ford',
+//   model: 'Mustang',
+//   color: 'red'
+// }
+
+// const updateMyVehicle = {
+//    ...myVehicle,
+//    brand : "ashish"
+// }
+
+// alert(JSON.stringify(updateMyVehicle)); o/p => {"brand":"ashish","model":"Mustang","color":"red"} -->
