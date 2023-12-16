@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import State from './State'
 import StateReadingMultipleField from "./StateReadingMultipleField";
-import FormBinding from "./FormBinding";
+import FormBinding from "./form-binding/FormBinding";
 
 export default class ComponentDemo extends Component{
     render(){
