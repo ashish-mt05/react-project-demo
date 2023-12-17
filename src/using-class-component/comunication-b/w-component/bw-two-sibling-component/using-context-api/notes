@@ -1,0 +1,93 @@
+Note :
+It is recommendation to use Redux for complex global state management and Context for prop drilling.
+
+
+For more follow :
+
+https://blog.logrocket.com/react-context-api-deep-dive-examples/
+//Good video
+https://www.youtube.com/watch?v=ch8kiuRJc7I
+
+Step to use context type:
+
+1. create context object
+   const UserInfoContext = createContext();
+2. wrap child component into context provider
+    <UserInfoContext.Provider value={this.userInfo}>
+        <TopNav />
+        <hr/>
+        <Profile /> 
+        <hr/>
+        <SideNav />
+    </UserInfoContext.Provider>
+3. consume context
+  
+  1st way : using <Component>.ContextType = UserInfoContext;
+  then extract data from this.context;
+  ex:
+
+        export default class TopNav extends Component {
+        render() {
+            //2nd then extract data frm context
+            const {name, email} = this.context;
+            return (
+            <div>
+                <h4>TopNav data : </h4>
+                <p>Name : {name}</p>
+                <p>Email : {email}</p>
+            </div>
+            )
+        }
+        }
+        //1st assign context
+        TopNav.contextType = UserInfoContext;
+
+2. using static assignment of contexttype
+Ex:
+
+        export default class SideNav extends Component {
+        //1st static assignment of UserInfoContext
+        static contextType = UserInfoContext;
+        render() {
+            //verify data coming or not in context api
+            //alert(JSON.stringify(this.context));
+            //2nd : extract data from context
+            const {name, email} = this.context;
+            return (
+            <div>
+                <h4>SideNav data : </h4>
+                <p>Name : {name}</p>
+                <p>Email : {email}</p>
+            </div>
+            )
+        }
+        }
+
+
+3. using Context Consumer:
+
+        export default class Profile extends Component {
+        render() {
+            return (
+            <div>
+                <h4>Profile data : </h4>
+                {/* using UserInfoContext.Consumer */}
+                //UserInfoContext.Consumer contains callback function whih take props as argument
+                <UserInfoContext.Consumer>
+                    { 
+                    (props)=>{
+                        //extract data from props
+                        const {name, email} = props;
+                        return (
+                        <>
+                            <p>name : {name}</p>
+                            <p>email : {email}</p>
+                        </>
+                        )
+                    }  
+                    }
+                </UserInfoContext.Consumer>
+            </div>
+            )
+        }
+        }
