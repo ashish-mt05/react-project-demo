@@ -1,0 +1,123 @@
+https://www.youtube.com/watch?v=HNlMsiFEUuE
+https://www.youtube.com/watch?v=2JBx_06dD1k
+https://www.youtube.com/watch?v=93CR_yURoII
+https://www.youtube.com/watch?v=mf4MYMS-75Q&list=PLM0LBHjz37LW_Wz3DPoT5-bm1btrBD1bu
+
+//extraReducer :
+https://redux-toolkit.js.org/api/createSlice#extrareducers
+https://redux-toolkit.js.org/usage/usage-with-typescript#type-safety-with-extrareducers
+https://redux-toolkit.js.org/api/createAsyncThunk
+https://redux-toolkit.js.org/usage/usage-with-typescript#typing-builderaddmatcher
+https://redux-toolkit.js.org/api/createReducer#builderadddefaultcase
+
+step to work with redux toolkit :
+
+1. install redux react-redux @reduxjs/toolkit axios
+
+2. create store using configureStore
+
+    import { configureStore } from "@reduxjs/toolkit";
+    import counterReducer from '../demo/slice/CounterSlice'
+
+    const store = configureStore({
+        reducer :{
+           counter : counterReducer
+        }
+    });
+    export default store;
+
+    store accept reducer.
+    whatever key which we used to refer reducer, on that key whole data got stored.
+    Ex: here counter key to refer counterReducer so data got stored on couner variable:
+
+        {
+          counter: {
+              count: 10
+            }
+        }
+
+3. integrate store with component using Provider.
+
+    import React from 'react'
+    import Counter from './demo/component/Counter'
+    import { Provider } from 'react-redux'
+    import store from './store/store'
+
+    export default function ReduxToolKitDemo() {
+        return (
+            <div>
+                <Provider store={store}>
+                    <Counter />
+                </Provider>
+            </div>
+        )
+    }
+
+4. create slice, slice take object as argument.
+   inside the object we need to define three things:
+
+   name : this is slice name
+   initialState : initial value for data
+   reducers : it is also a object, inside reducer we need to create action.
+              action take state and action as argument paramer.
+              from state we can extract data which we want to update on action.
+              from action we take dynamic data which we perform on state.
+
+   Ex:
+
+        import { createSlice } from "@reduxjs/toolkit";
+
+        const counterSlice = createSlice({
+            //slice name
+            name : 'counter',
+            //initial state(this once bydefault assigned to state)
+            initialState : {
+                count : 10
+            },
+            //reducers{} object here inside reducer we need to create action
+            reducers :{
+                //action for increament counter
+                increamentCounter(state, action){
+                    //bydefault action has payload.
+                    state.count += action.payload
+                },
+                //action for decreament counter
+                decreamentCounter(state, action){
+                    state.count -= action.payload
+                },
+            }
+            
+        });
+
+        //to use action in other component, we need export action(counterSlice.actions return all action present inside reducers)
+        export const {increamentCounter, decreamentCounter} = counterSlice.actions;
+
+        //export reducers to use in store.
+        export default counterSlice.reducer
+
+    5. useDispatch hook to triggered reducer.
+
+        import React, { useReducer } from 'react'
+        import { decreamentCounter, increamentCounter } from '../slice/CounterSlice'
+        import { useDispatch } from 'react-redux'
+
+        export default function Counter() {
+        const countInfo = useReducer(state => state.counter)
+        const dispatch = useDispatch();
+        const increamentCount = ()=>{
+            //when we call dispatch the it automatically got to store, from there it will search corresponding reducer.
+            //once reducer found then it will redirect to reducer and perform action which we have defined inside reducer action.
+            dispatch(increamentCounter(1));
+        }
+        const decreamentCount = ()=>{
+            dispatch(decreamentCounter(1));
+        }
+        return (
+            <div>
+                <p>count : {countInfo.count}</p>
+                <hr/>
+                <button onClick={increamentCount}>increament</button>
+                <button onClick={decreamentCount}>decreament</button>
+            </div>
+          )
+        }

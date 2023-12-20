@@ -1,3 +1,8 @@
+https://www.youtube.com/watch?v=HNlMsiFEUuE
+https://www.youtube.com/watch?v=2JBx_06dD1k
+https://www.youtube.com/watch?v=93CR_yURoII
+https://www.youtube.com/watch?v=mf4MYMS-75Q&list=PLM0LBHjz37LW_Wz3DPoT5-bm1btrBD1bu
+
 step to work with redux toolkit :
 
 1. install redux react-redux redux @reduxjs/toolkit

@@ -1,14 +1,14 @@
 import './App.css';
 import ComponentDemo from './using-class-component/ComponentDemo';
 import LifeCycleDemo from './using-class-component/lifecylc/LifeCycleDemo';
-import ReduxToolkitDemo from './using-function-component/redux-toolkit/ReduxToolkitDemo';
+import ReduxToolKitDemo from './using-function-component/redux-tool-kit-demo/ReduxToolKitDemo';
 
 function App() {
   return (
     <div className="App">
       {/* <ComponentDemo/> */}
       {/* <LifeCycleDemo /> */}
-       <ReduxToolkitDemo />
+       <ReduxToolKitDemo />
     </div>
   );
 }
