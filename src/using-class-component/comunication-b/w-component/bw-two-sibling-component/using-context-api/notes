@@ -5,8 +5,10 @@ It is recommendation to use Redux for complex global state management and Contex
 For more follow :
 
 https://blog.logrocket.com/react-context-api-deep-dive-examples/
-//Good video
+//way to create and consume context api, go through this video
 https://www.youtube.com/watch?v=ch8kiuRJc7I
+https://legacy.reactjs.org/docs/context.html
+https://react.dev/learn/scaling-up-with-reducer-and-context
 
 Step to use context type:
 

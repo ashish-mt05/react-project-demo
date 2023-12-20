@@ -1,0 +1,21 @@
+step to work with redux toolkit :
+
+1. install redux react-redux redux @reduxjs/toolkit
+
+2. create store using configureStore
+
+   it is recommondated to create new .js file:
+
+    store.js
+
+    import { configureStore } from '@reduxjs/toolkit'
+    import counterReducer from '../reducer/CounterSlice'
+
+    const store = configureStore({
+        reducer: {
+            'reducer': counterReducer,
+        },
+        
+    });
+
+    export default store;

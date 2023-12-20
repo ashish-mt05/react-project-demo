@@ -1,4 +1,19 @@
-<!-- 
+mistak while coding :
+https://www.youtube.com/watch?v=-yIsQPp31L0 
+
+React Offical Doc:
+https://react.dev/learn  ==> new
+https://legacy.reactjs.org/docs/context.html#consuming-multiple-contexts ==> old
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names ==> JS6
+
+life cycle:
+https://www.freecodecamp.org/news/react-component-lifecycle-methods/
+
+//context api
+https://www.youtube.com/watch?v=ch8kiuRJc7I
+https://legacy.reactjs.org/docs/context.html
+https://react.dev/learn/scaling-up-with-reducer-and-context
 
 //React Article :
 https://www.freecodecamp.org/news/tag/react/
@@ -34,5 +49,3 @@ https://getbootstrap.com/docs/5.0/forms/checks-radios/
 
 //react bootstrap:
 https://react-bootstrap.netlify.app/docs/forms/overview
-
--->

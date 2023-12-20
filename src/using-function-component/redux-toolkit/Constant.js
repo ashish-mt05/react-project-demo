@@ -1,0 +1,1 @@
+export const CART_REDUCER_FEATURE_KEY = 'cartReducer'

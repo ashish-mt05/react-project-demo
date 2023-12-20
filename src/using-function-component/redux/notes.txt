@@ -1,0 +1,139 @@
+https://blog.logrocket.com/understanding-redux-tutorial-examples/
+
+step to create redux :
+
+1. install below library :
+
+  c:> npm install redux react-redux redux-logger
+
+
+1. create Action:
+
+   action.js
+
+   const INCR_QTY = 'INCR_QTY',
+   const DECR_QTY = 'DECR_QTY'
+
+
+   const increamentQty = (number)=>{ 
+      return {
+        type: INCR_QTY,
+        increamentBy : number
+      }
+   }
+
+   const decreamentQty = (number)=>{
+      return {
+        type: DECR_QTY,
+        decreamentBy : number
+      }   
+   }
+
+3. create reducer :
+
+   //create initial state :
+   const initialState = {
+       qty : 30
+   }
+
+   const increamentReducer = (state=initialState, action)=>{
+       swithc(action.type)
+          CASE INCR_QTY:
+            return {
+                //copy initialState state then modify
+                ...state,
+                qty : state.qty + action.increamentBy  (to access the state variable we need to use state)
+            }
+
+          default :
+             return state
+
+   }
+
+   export default increamentReducer;
+
+   const decreamentReducer = (state=initialState, action)=>{
+       swithc(action.type)
+          CASE DECR_QTY:
+            return {
+                //copy initialState state then modify
+                ...state,
+                qty : state.qty - action.decreamentBy 
+            }
+
+          default :
+             return state
+
+   }
+
+   export default decreamentReducer;
+
+3. create combinedReducer to combine all reducer at one becouse createStore accept only one reducer.
+
+import {combineReducers} from '.redux'
+
+const rootReducer = combineReducers({
+    'increamentReducer' : increamentReducer,
+    'decreamentReducer' : decreamentReducer
+});
+
+export default rootReducer;
+
+4. create store to store applcation state :
+
+   recommondate tomcreate new file for store:
+
+   store.js:
+
+   import {createStore} from '.redux'
+
+   export default store = createStore(rootReducer);
+
+
+5. integrate store in react :
+
+   const App=()=>{
+      
+      return(
+        <div>
+           <Provider store={store}>
+              <Main />
+           </Provider>
+        </div>
+      )
+
+   }
+
+   export default App;
+
+   6. to consume store value we use 'useReducder()':
+    //import useReducder
+    import {useReducder} from '.react-redux'
+    import {useDispatch} from '.react-redux'
+    function Main(){
+        const dispatch = useDispatch();
+        const data = useReducder((state)=>{
+            //instead of hardcoded data we can create on constatnt then we use
+            //increamentReducer value you will get from rootReducer.
+            return state['increamentReducer']; 
+        })
+        const {qty} = data;
+        //trigger events:
+        const increment = () => dispatch(increamentQty(1));
+        const decrement = () => dispatch(decreamentQty(1));
+        return(
+            <div>
+                <p>Count: {state.count}</p>
+                <p>Qty : {quantity}</p>
+                <button onClick={increment}>Increment</button>
+                <button onClick={decrement}>Decrement</button>
+            </div>
+        );
+    }
+
+    Note : using distach() we can initiate reducer. then reducder store create new
+    state and update this new state into store
+
+   
+
+
